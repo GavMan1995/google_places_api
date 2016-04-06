@@ -1,14 +1,14 @@
 class GooglesController < ApplicationController
+  before_action :client
   def index
-    binding.pry
+    @place = "tacos in bountiful"
+    @spots = @client.spots_by_query("#{@place}")
   end
 
   private
 
   def client
-    @client ||= GooglePlaces::Client.new do |config|
-      config.api_key = ENV['API_KEY']
-    end
+    @client = GooglePlaces::Client.new(ENV['API_KEY'])
   end
 
 end
