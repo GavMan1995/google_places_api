@@ -1,7 +1,7 @@
 class GooglesController < ApplicationController
   before_action :client
   def index
-    @place = ""
+    @place = "sushi in provo"
     @spots = @client.spots_by_query("#{@place}")
   end
 

@@ -1,5 +1,5 @@
 <% @spots.each do |spot| %>
-    <% if spot.name == "Takashi" %>
+
     <h1><%= spot.name %></h1>
     <iframe
       width="600"
@@ -9,5 +9,6 @@
     </iframe>
     <h3>address: <%= spot.formatted_address %></h3>
     <h3>rating: <%= spot.rating %></h3>
-    <% end %>
+    <h3><%= spot.vicinity %></h3>
+
 <% end %>
