@@ -4,9 +4,9 @@ class GooglesController < ApplicationController
   end
 
   def search
-    @result = request.location
-    @spots = @client.spots_by_query(params["search"], :types => ['restaurant', 'food', 'meal_takeaway', 'meal_delivery', 'cafe', 'bakery'])
-    @near = @spots.near("#{@results}", 20)
+    @location = request.remote_ip
+    @spots = @client.spots_by_query(params["search"] + "in #{@location}", :types => ['restaurant', 'food', 'meal_takeaway', 'meal_delivery', 'cafe', 'bakery'])
+    binding.pry
   end
 
   private
