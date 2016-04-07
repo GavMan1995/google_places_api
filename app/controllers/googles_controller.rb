@@ -6,7 +6,7 @@ class GooglesController < ApplicationController
   def search
     @result = request.location
     @spots = @client.spots_by_query(params["search"], :types => ['restaurant', 'food', 'meal_takeaway', 'meal_delivery', 'cafe', 'bakery'])
-    puts @spots.near("#{@results}", 20)
+    @near = @spots.near("#{@results}", 20)
   end
 
   private
