@@ -1,8 +1,10 @@
 class GooglesController < ApplicationController
   before_action :client
   def index
-    @place = "sushi in provo"
-    @spots = @client.spots_by_query("#{@place}")
+  end
+
+  def search
+    @spots = @client.spots_by_query(params["search"])
   end
 
   private

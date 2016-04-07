@@ -1,14 +1,1 @@
-<% @spots.each do |spot| %>
-
-    <h1><%= spot.name %></h1>
-    <iframe
-      width="600"
-      height="450"
-      frameborder="0" style="border:0"
-      src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyDZa0tAkB9vBNbJXxcxsV3Yjm137cNXk8s&origin=370+south+300+west+salt+lake+city&destination=<%= spot.formatted_address.gsub(' ', '+') %>" allowfullscreen>
-    </iframe>
-    <h3>address: <%= spot.formatted_address %></h3>
-    <h3>rating: <%= spot.rating %></h3>
-    <h3><%= spot.vicinity %></h3>
-
-<% end %>
+<%= react_component('GoogleSearch') %>
